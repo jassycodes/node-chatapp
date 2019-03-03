@@ -7,8 +7,33 @@ const request = require('request');
 user.get('/', function(req, res, next) {	
 
 // console.log("req.cookies.currentUser: ", req.cookies.currentUser);
-	res.render('user', {currentUser: req.cookies.currentUser});
+	// res.render('user', {currentUser: req.cookies.currentUser});
+
+	var messagesObj = null;
+	var rand;
+	console.log("rand0: ", rand);
+	var size = 0;
+
+  UserDB.loadAllMessages()
+  .then((messages) => {
+
+  	console.log("user.js -> loadAllMessages")
+  	messagesObj = JSON.parse(JSON.stringify(messages));
+
+	res.render('user', {currentUser: req.cookies.currentUser, messagesInfo: messagesObj});
+ 
+  })
+  .catch((err) => {
+	console.log("found an error", err);
+	res.send(500, err);
+  });
   
+});
+
+user.get('/successget', function(req, res, next) {	
+	console.log('/successget');
+
+	res.send(200, "it works - src: server");
 });
 
 user.get('/getchats', function(req, res, next) {	
@@ -33,24 +58,24 @@ user.get('/getchats', function(req, res, next) {
   	// console.log("messagesObj['RowDataPacket']: ", messagesObj['RowDataPacket']);
   	// console.log("json: ", JSON.parse(JSON.stringify(messages)));
   	messagesObj = JSON.parse(JSON.stringify(messages));
-  	// console.log("typeof: ", typeof messagesObj);
-  	size = Object.keys(messagesObj).length;
-  	console.log("size: ", size);
-  	// JSON.parse(JSON.stringify(messagesObj))
-	console.log("Starting FOR LOOP");
-	for (var index in messagesObj) {
-	    if (messagesObj.hasOwnProperty(index)) {
-	        console.log(index + " -> " + messagesObj[index].message);
-	    }
-	}
+ //  	// console.log("typeof: ", typeof messagesObj);
+ //  	size = Object.keys(messagesObj).length;
+ //  	console.log("size: ", size);
+ //  	// JSON.parse(JSON.stringify(messagesObj))
+	// console.log("Starting FOR LOOP");
+	// for (var index in messagesObj) {
+	//     if (messagesObj.hasOwnProperty(index)) {
+	//         console.log(index + " -> " + messagesObj[index].message);
+	//     }
+	// }
 
-	// res.render('user', {currentUser: req.cookies.currentUser, messagesInfo: messagesObj});
+	res.render('user', {currentUser: req.cookies.currentUser, messagesInfo: messagesObj});
 	// res.send(200, messagesObj);
-	console.log("typeof: ", typeof messagesObj);
+	// console.log("typeof: ", typeof messagesObj);
 	// res.status(200).send(messagesObj)
 	// return messagesObj;
 	// res.end(JSON.stringify(messagesObj));
-	res.send("hello");
+	// res.send("hello");
  
   })
   .catch((err) => {
