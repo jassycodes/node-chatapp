@@ -1,5 +1,6 @@
 body.container-fluid{
-	background-color: #c0deed !important;
+	background-color: white;
+	/*background-color: #c0deed !important;*/
 	color: #5b5b5b;
 	font-family: 'Lato', sans-serif;
 	height: 100%;
@@ -146,4 +147,31 @@ th{
 
 #homepage-button{
 	color: white;
+}
+
+.errorMsg{
+	/*background-color: #b84c4c; */
+	color: #b84c4c;
+	margin-bottom: 10px;
+	font-size: 20px;
+	font-weight: : bold;
+	/*background-color: black;*/
+	/*padding: 10px;*/
+	/*border-color: black;*/
+/*	margin-left: 30%;
+	margin-right: 30%;*/
+}
+
+.addPadding{
+	padding: 10px;
+}
+
+.errorStyle{
+	background-color: #b84c4c; 
+	border-color: black;
+	color: black; 
+	margin-left: 30%;
+	margin-right: 30%;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }

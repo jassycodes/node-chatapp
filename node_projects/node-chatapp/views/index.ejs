@@ -8,22 +8,17 @@
       <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
       <!--BOOTSTRAP-->
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-      <!-- <link rel="stylesheet" href="static/styles.css?v=1.0"> -->
-      <link rel="stylesheet" type="text/css" href="styles.css" />
-      <!--BOOTSTRAP-->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-      <script src="static/chat.js"></script>
-      <script src="static/button_example.js"></script>
-      <script src="static/httpRequestNoCallback.js"></script>
-      <!-- <a href="http://google.com/">Google></a> -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/styles.css" />
    </head>
    <body class = "container-fluid">
    <!-- menu div -->
    <div id="menu" class="navbar navbar-default fixed-top" style="padding-bottom: 50px;">
-         <div class="container-fluid"><a href="/" class="menu-item">HOME</a> <p> YOU ARE LOGGED IN AS:  {{username}}</p> <a href=#mainContent class="menu-item">^</a> <form action="/user/logout"><input style=" padding: 10px; background-color: #0f6185; color: white; font-weight: bold; border-color: darkgrey; border-width: 3px;" type="submit" value="LOG OUT"> </form></div>
+         <div class="container-fluid"><a href="/" class="menu-item">HOME</a> <p> YOU ARE LOGGED IN AS: 
+          <%= currentUser%><</p> <a href=#mainContent class="menu-item">^</a> <form action="/user/logout"><input style=" padding: 10px; background-color: #0f6185; color: white; font-weight: bold; border-color: darkgrey; border-width: 3px;" type="submit" value="LOG OUT"> </form></div>
    </div>
    <!-- menu div -->
    <!--main content -->
