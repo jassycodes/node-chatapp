@@ -1,5 +1,10 @@
 // access db
 var db = require('../db/config/config');
+var dateTime = require('node-datetime');
+var dt = dateTime.create();
+var formattedDT = dt.format('Y-m-d H:M:S');
+var formattedDate = dt.format('m-d-Y');
+var formattedTime = dt.format('H:M:S');
 
 module.exports = {
     test: function() {
@@ -97,7 +102,7 @@ module.exports = {
                         currentUserID = res[0].id;
                         return new Promise((resolve, reject) => {
                             console.log("User.js -> Promise -> (2) sendMessage");
-                            const queryString = "INSERT INTO Chats(sender_ID, sender_username,message) VALUES ( '" + currentUserID + "', '" + user + "',  '" + message + "')";
+                            const queryString = "INSERT INTO Chats(sender_ID, sender_username,message,DATESTAMP,TIMESTAMP) VALUES ( '" + currentUserID + "', '" + user + "',  '" + message + "', '" + formattedDate + "', '" + formattedTime + "')";
                             //   const queryString = 'INSERT INTO Users(username, password) VALUES ('" + user.username + "', '" + user.pword + "')';
                             // const queryString = 'SELECT * FROM Users WHERE username="jassy"';
                             db.query(queryString, (err, res) => {

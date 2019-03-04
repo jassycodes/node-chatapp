@@ -69,8 +69,8 @@ user.get('/getchats', function(req, res, next) {
 	//     }
 	// }
 
-	res.render('user', {currentUser: req.cookies.currentUser, messagesInfo: messagesObj});
-	// res.send(200, messagesObj);
+	// res.render('user', {currentUser: req.cookies.currentUser, messagesInfo: messagesObj});
+	res.send(200, messagesObj);
 	// console.log("typeof: ", typeof messagesObj);
 	// res.status(200).send(messagesObj)
 	// return messagesObj;
