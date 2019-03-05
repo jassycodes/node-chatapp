@@ -1,0 +1,95 @@
+body.container-fluid{
+	background-color: white;
+	/*background-color: #c0deed !important;*/
+	color: #5b5b5b;
+	font-family: 'Lato', sans-serif;
+	height: 100%;
+	width: 100%;
+}
+
+#menu {
+	text-align: center;
+	padding: 2%;
+	background-color: #002859;
+	font-weight: bold;
+	color: white !important;
+	padding-bottom: 50px;
+}
+
+a:link{
+	color: white;
+	text-decoration: none;
+	font-style: bold !important;
+}
+
+a:visited{
+	color: lightgrey;
+	text-decoration: none;
+	font-style: bold !important;
+}
+
+a:hover{
+	/*text-decoration: underline;*/
+	color: white;
+}
+
+div#menu-contents.container-fluid{
+	margin-top: 50px;
+}
+
+#mainContent{
+  margin-top: 170px !important;
+  align-content: : center;
+  color: black;/*
+  margin-right: 50%;
+  margin-left: 50%;*/
+}
+
+h1{
+	text-align: center;
+}
+
+.formDiv{
+	border: 2px solid black;
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-top: 20px;
+	padding-bottom: 100px;
+	margin-bottom: 100px;
+}
+
+.formDiv#registerFormDiv{
+	/*background-color: lightgrey;*/
+}
+
+.formDiv#loginFormDiv{
+	/*background-color: lightgrey;*/
+}
+
+.formHeading{
+	padding-bottom: 20px;
+}
+
+.formContent{
+	margin-top: 10px !important;
+	margin-bottom: 10px !important;
+	padding: 12px; 
+	padding-left: 8%; 
+	padding-right: 8%; 
+	border-color: darkgrey;
+	font-size: 20px;
+}
+
+.formButton{
+	padding: 10px; 
+	margin-top: 10px; 
+	background-color: #002859; 
+	color: white; 
+	font-weight: bold; 
+	border-color: #484848; 
+	border-width: 3px;
+}
+
+.formButton:hover{
+	background-color: #0e62c9; 
+}
