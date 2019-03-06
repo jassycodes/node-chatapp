@@ -138,12 +138,16 @@ module.exports = {
     },
     loadAllMessages: function() {
         console.log("loadAllMessages")
+        // console.log(user)
+        // console.log(this.findOne(user));
+        // var foundUser = this.findOne(user);
 
         return new Promise((resolve, reject) => {
             const queryString = 'SELECT * FROM Chats';
             db.query(queryString, (err, res) => {
-                // console.log(res, "loadAllMessages res");
+                console.log(res[0].message, "loadAllMessages res");
 
+                // for 
                 if (err) {
                     // send back an error
                     console.log("found an error");
@@ -161,33 +165,40 @@ module.exports = {
                 }
             });
         });
-    },
+        // if(foundUser){
+        //     const queryString = 'SELECT * FROM Chats';
+        //     db.query(queryString, (err, res) => {
+        //         if (err) {
+        //                 // send back an error
+        //                 console.log("found an error");
+        //                 reject(err);
+        //         } else {
+        //             console.log("res: ", res[0]);
+        //         }
 
-    getUserList: function() {
-        console.log("getUserList")
-
-        return new Promise((resolve, reject) => {
-            const queryString = 'SELECT * FROM Users';
-            db.query(queryString, (err, res) => {
-                // console.log(res, "loadAllMessages res");
-
-                if (err) {
-                    // send back an error
-                    console.log("found an error");
-                    reject(err);
-                } else {
-                    if (res.length) {
-                        // found a user with username that was passed in
-                        console.log("res.length");
-                        resolve(res);
-                    } else {
-                        // did not find a user with username
-                        console.log("ELSEEEE");
-                        resolve(false);
-                    }
-                }
-            });
-        });
+        //     // return new Promise((resolve, reject) => {
+        //     //     const queryString = 'SELECT * FROM Chats';
+        //     //     db.query(queryString, (err, res) => {
+        //     //         // console.log(err, res, "hello");
+        //     //         if (err) {
+        //     //             // send back an error
+        //     //             console.log("found an error");
+        //     //             reject(err);
+        //     //         } else {
+        //     //             if (res.length) {
+        //     //                 // found a user with username that was passed in
+        //     //                 console.log("res.length");
+        //     //                 resolve(res[0]);
+        //     //             } else {
+        //     //                 // did not find a user with username
+        //     //                 console.log("ELSE");
+        //     //                 resolve(false);
+        //     //             }
+        //     //         }
+        //     //     });
+        //     // });
+        //     });
+        // }
     },
 
 }

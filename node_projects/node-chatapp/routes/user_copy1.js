@@ -46,10 +46,36 @@ user.get('/getchats', function(req, res, next) {
   UserDB.loadAllMessages()
   .then((messages) => {
 
-  	console.log("user.js -> loadAllMessages");
-  	messagesObj = JSON.parse(JSON.stringify(messages));
+  	console.log("user.js -> loadAllMessages")
+  	// console.log("messages", messages);
+  	// // messagesObj = messages ;
+  	// console.log("messagesObj", messagesObj);
+  	// console.log("typeof: ", typeof messagesObj);
+  	// rand = 1;
+  	// console.log("rand1: ", rand);
 
+
+  	// console.log("messagesObj['RowDataPacket']: ", messagesObj['RowDataPacket']);
+  	// console.log("json: ", JSON.parse(JSON.stringify(messages)));
+  	messagesObj = JSON.parse(JSON.stringify(messages));
+ //  	// console.log("typeof: ", typeof messagesObj);
+ //  	size = Object.keys(messagesObj).length;
+ //  	console.log("size: ", size);
+ //  	// JSON.parse(JSON.stringify(messagesObj))
+	// console.log("Starting FOR LOOP");
+	// for (var index in messagesObj) {
+	//     if (messagesObj.hasOwnProperty(index)) {
+	//         console.log(index + " -> " + messagesObj[index].message);
+	//     }
+	// }
+
+	// res.render('user', {currentUser: req.cookies.currentUser, messagesInfo: messagesObj});
 	res.send(200, messagesObj);
+	// console.log("typeof: ", typeof messagesObj);
+	// res.status(200).send(messagesObj)
+	// return messagesObj;
+	// res.end(JSON.stringify(messagesObj));
+	// res.send("hello");
  
   })
   .catch((err) => {
@@ -60,12 +86,6 @@ user.get('/getchats', function(req, res, next) {
   console.log('getting messages', messagesObj);
 
  });
-
-user.get('/clearchats', function(req, res, next) {	
-	console.log("user.js -> deletechats");
-
-	res.send(200, "clear chats");
-});
 
 user.get('/welcome', function(req, res){ 
   res.render('welcome',{user:"John Smith"});
@@ -92,6 +112,10 @@ user.post('/login', function (req, res, next) {
   //expect username password
   UserDB.findOne(req.body)
   .then((user) => {
+	// console.log("body", req.body)
+	// console.log("found a user", user)
+	// console.log("found a password", user.password)
+	// console.log("html password: ", req.body.pword)
 
 	if (user) {
 	  if (req.body.pword === user.password) {
@@ -159,7 +183,6 @@ user.post('/sendtochatbox', function(req, res, next) {
   console.log("req.cookies.currentUser " + req.cookies.currentUser);
   console.log("req:" + req);
   console.log("req body:" + req.body);
-  console.log("req body message:" + req.body.message);
   // UserDB.sendMessage(req.body);
     UserDB.sendMessage(req.body, req.cookies.currentUser).then((message, user) => {
  
@@ -177,28 +200,11 @@ user.post('/sendtochatbox', function(req, res, next) {
 
 });
 
-user.get('/getuserlist', function(req, res, next) {	
-	console.log('/getuserlist');
 
-	var usersInfo = null;
-
-  UserDB.getUserList()
-  .then((userList) => {
-
-  	console.log("user.js -> getUserList");
-  	usersInfo = JSON.parse(JSON.stringify(userList));
-
-	res.send(200, usersInfo);
- 
-  })
-  .catch((err) => {
-	console.log("found an error", err);
-	res.send(500, err);
-  });
-
-  console.log('getting users', usersInfo);
-
- });
+// // Wildcard route
+// user.get('/*', function(req, res, next) {
+//   res.render('index', { title: 'Chat App' });
+// });
 
 module.exports = user;
 
